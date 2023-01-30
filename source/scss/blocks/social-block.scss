@@ -1,3 +1,21 @@
+@keyframes rollDown {
+  0% {
+    transform: translateY(15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .social-block {
   position: relative;
 
@@ -5,6 +23,18 @@
     .social-block__list {
       opacity: 1;
       pointer-events: auto;
+      li {
+        opacity: 0;
+      }
+      li:nth-child(1) {
+        animation: rollDown 0.5s ease 0s forwards, fadeIn 0.5s 0s forwards;
+      }
+      li:nth-child(2) {
+        animation: rollDown 0.5s ease 0.1s forwards, fadeIn 0.5s 0.1s forwards;
+      }
+      li:nth-child(3) {
+        animation: rollDown 0.5s ease 0.2s forwards, fadeIn 0.5s 0.2s forwards;
+      }
     }
   }
 }
@@ -27,6 +57,7 @@
   }
 
   &::before {
+    transition: all 0.5s ease;
     @include center;
     content: "";
     width: 100%;
@@ -60,11 +91,15 @@
 
     &::before {
       border-color: $c-purple;
+      background-color: $c-purple;
     }
 
     & + .social-block__list {
       opacity: 1;
       pointer-events: auto;
+    }
+    svg {
+      color: $c-light;
     }
   }
 
@@ -168,6 +203,7 @@
   color: $c-light;
   border: 2px solid transparent;
   border-radius: 50%;
+  transition: color 0.5s ease;
 
   @media (min-width: $stop-scaling) {
     width: 40px;
