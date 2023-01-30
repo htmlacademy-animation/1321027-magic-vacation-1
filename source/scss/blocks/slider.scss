@@ -88,12 +88,30 @@
   .slider__item-text {
     opacity: 0;
     animation: rollLeft 0.4s ease 0.8s forwards, fadeIn 0.4s ease 0.8s forwards;
+    @media (orientation: portrait) {
+      animation: rollLeft 0.4s ease 0.4s forwards, fadeIn 0.4s ease 0.4s forwards;
+    }
   }
 
   &:nth-child(odd) {
     .slider__item-text {
       opacity: 0;
       animation: rollLeft 0.4s ease 0.4s forwards, fadeIn 0.4s ease 0.4s forwards;
+    }
+  }
+}
+
+.swiper-slide-next {
+  .slider__item-text {
+    @media (orientation: portrait) {
+      animation: none;
+    }
+  }
+  &:nth-child(odd) {
+    .slider__item-text {
+      @media (orientation: portrait) {
+        animation: none;
+      }
     }
   }
 }
