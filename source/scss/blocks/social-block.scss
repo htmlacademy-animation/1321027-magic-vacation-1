@@ -39,7 +39,6 @@
   }
 
   &::before {
-    transition: all $d-normal ease;
     @include center;
     content: "";
     width: 100%;
@@ -48,6 +47,13 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    transform-origin: center;
+    transform: translate(-50%, -50%) scale(0);
+    transition: width $d-normal ease, height $d-normal ease, transform $d-normal cubic-bezier(.17,.67,.8,1.43) $d-long;
+
+    body.loaded & {
+      transform: translate(-50%, -50%);
+    }
   }
 
   svg {
