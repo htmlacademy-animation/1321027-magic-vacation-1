@@ -1,0 +1,53 @@
+@keyframes rollRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes rollLeft {
+  0% {
+    transform: translateX(2rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes rollDown {
+  0% {
+    transform: translateY(1rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes rollUp {
+  0% {
+    transform: translateY(2rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes rollLeftForm {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: calc(85%);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
