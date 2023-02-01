@@ -291,7 +291,12 @@
       &::after {
         display: block;
         width: 100%;
-        transform: translateX(0);
+        transform: translateX(-100%);
+        transition: transform $d-normal ease 0.8s;
+
+        body.loaded & {
+          transform: translateX(0);
+        }
       }
     }
 
