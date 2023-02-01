@@ -1,21 +1,3 @@
-@keyframes rollDown {
-  0% {
-    transform: translateY(15px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 .social-block {
   position: relative;
 
@@ -27,13 +9,13 @@
         opacity: 0;
       }
       li:nth-child(1) {
-        animation: rollDown 0.5s ease 0s forwards, fadeIn 0.5s 0s forwards;
+        animation: rollDown $d-normal ease 0s forwards, fadeIn $d-normal 0s forwards;
       }
       li:nth-child(2) {
-        animation: rollDown 0.5s ease 0.1s forwards, fadeIn 0.5s 0.1s forwards;
+        animation: rollDown $d-normal ease 0.1s forwards, fadeIn $d-normal 0.1s forwards;
       }
       li:nth-child(3) {
-        animation: rollDown 0.5s ease 0.2s forwards, fadeIn 0.5s 0.2s forwards;
+        animation: rollDown $d-normal ease 0.2s forwards, fadeIn $d-normal 0.2s forwards;
       }
     }
   }
@@ -57,7 +39,6 @@
   }
 
   &::before {
-    transition: all 0.5s ease;
     @include center;
     content: "";
     width: 100%;
@@ -66,6 +47,13 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    transform-origin: center;
+    transform: translate(-50%, -50%) scale(0);
+    transition: width $d-normal ease, height $d-normal ease, transform $d-normal cubic-bezier(.17,.67,.8,1.43) $d-long;
+
+    body.loaded & {
+      transform: translate(-50%, -50%);
+    }
   }
 
   svg {
@@ -203,7 +191,7 @@
   color: $c-light;
   border: 2px solid transparent;
   border-radius: 50%;
-  transition: color 0.5s ease;
+  transition: color $d-normal ease;
 
   @media (min-width: $stop-scaling) {
     width: 40px;
